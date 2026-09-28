@@ -94,13 +94,19 @@ async def parse_resume_api(request: ResumeParseRequest):
         )
 
     return {
-        "candidate_id": candidate_id,
-        "status": "parsed",
-        "profile": {
-            "name": parsed_resume.get("name", ""),
-            "skills": parsed_resume.get("skills", []),
-            "experience": parsed_resume.get("experience", []),
-            "education": parsed_resume.get("education", []),
-            "certifications": parsed_resume.get("certifications", [])
-        }
+    "candidate_id": candidate_id,
+    "status": "parsed",
+    "profile": {
+        "name": parsed_resume.get("name", ""),
+        "email": parsed_resume.get("email", ""),
+        "phone": parsed_resume.get("phone", ""),
+        "location": parsed_resume.get("location", ""),
+        "summary": parsed_resume.get("summary", ""),
+        "skills": parsed_resume.get("skills", []),
+        "experience": parsed_resume.get("experience", []),
+        "education": parsed_resume.get("education", []),
+        "projects": parsed_resume.get("projects", []),
+        "certifications": parsed_resume.get("certifications", []),
+        "languages": parsed_resume.get("languages", [])
     }
+}

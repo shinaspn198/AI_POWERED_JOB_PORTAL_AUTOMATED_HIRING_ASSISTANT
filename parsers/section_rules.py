@@ -45,9 +45,12 @@ SECTION_RULES = {
         "awards",
         "honors"
     ],
-
-    "languages": [
-        "languages",
-        "language proficiency"
-    ]
+"languages": [
+    "languages",
+    "language proficiency",
+    "languages known",
+    "language skills",
+    "spoken languages",
+    "known languages"
+]
 }
