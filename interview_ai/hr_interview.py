@@ -3,7 +3,6 @@ from interview_state import InterviewState
 
 
 def run_interview(candidate_type, role_type):
-
     questions = generate_questions(candidate_type, role_type)
     interview = InterviewState()
 
@@ -15,7 +14,11 @@ def run_interview(candidate_type, role_type):
     print("\n--- INTRODUCTION ---")
 
     for question in questions[:2]:
-        print(f"\nQuestion {question['question_id']}: {question['question']}")
+        print(
+            f"\nQuestion {question['question_id']}: "
+            f"{question['question']}"
+        )
+
         answer = input("Candidate: ")
 
         interview.capture_response(
@@ -28,7 +31,11 @@ def run_interview(candidate_type, role_type):
     print("\n--- CORE HR QUESTIONS ---")
 
     for question in questions[2:10]:
-        print(f"\nQuestion {question['question_id']}: {question['question']}")
+        print(
+            f"\nQuestion {question['question_id']}: "
+            f"{question['question']}"
+        )
+
         answer = input("Candidate: ")
 
         interview.capture_response(
@@ -41,7 +48,11 @@ def run_interview(candidate_type, role_type):
     print("\n--- ROLE-BASED EVALUATION ---")
 
     for question in questions[10:]:
-        print(f"\nQuestion {question['question_id']}: {question['question']}")
+        print(
+            f"\nQuestion {question['question_id']}: "
+            f"{question['question']}"
+        )
+
         answer = input("Candidate: ")
 
         interview.capture_response(
@@ -54,8 +65,13 @@ def run_interview(candidate_type, role_type):
     print("\n--- CLOSING ---")
     print("Thank you for completing the HR interview.")
 
+    responses = interview.get_responses()
+
     print("\n===== INTERVIEW COMPLETED =====")
-    print("Total Responses:", len(interview.get_responses()))
+    print("Total Responses:", len(responses))
+
+    # Return the actual live interview responses
+    return responses
 
 
 if __name__ == "__main__":

@@ -12,9 +12,8 @@ from scoring.score_engine import final_score
 
 
 def test_resume_parser():
-
-    result = parse_resume("sample.pdf")
-
+    sample_path = "data/sample_resumes/sample_resume.pdf" if os.path.exists("data/sample_resumes/sample_resume.pdf") else "sample.pdf"
+    result = parse_resume(sample_path)
     assert "skills" in result
 
 

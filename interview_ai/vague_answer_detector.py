@@ -1,47 +1,41 @@
 """
-Day 25 - Vague Answer Detection
+Day 42 - Stable Vague Answer Detection
 
 Purpose:
-Detect vague or unclear answers
-during HR screening.
+Reduce false positives while detecting genuinely vague answers.
 """
 
+VAGUE_PHRASES = {
+    "not sure",
+    "i don't know",
+    "don't know",
+    "anything is fine",
+    "it depends",
+    "somewhere",
+    "perhaps",
+    "probably",
+}
 
-def detect_vague_answer(answer: str):
+
+def detect_vague_answer(answer: str) -> bool:
     """
-    Detect whether a candidate's answer is vague.
-
-    Args:
-        answer: Candidate's response as text.
-
-    Returns:
-        True if the answer is vague, otherwise False.
+    Detect whether an answer is genuinely vague.
     """
 
-    if not answer or not answer.strip():
+    if not isinstance(answer, str):
         return False
 
-    text = answer.lower().strip()
+    text = " ".join(answer.lower().strip().split())
 
-    vague_phrases = [
-        "maybe",
-        "not sure",
-        "i don't know",
-        "don't know",
-        "anything is fine",
-        "anything",
-        "depends",
-        "it depends",
-        "somewhere",
-        "a lot",
-        "good experience",
-        "some experience",
-        "i think",
-        "probably",
-        "perhaps",
-    ]
+    if not text:
+        return False
 
-    if any(phrase in text for phrase in vague_phrases):
+    words = text.split()
+
+    if len(words) <= 2:
+        return True
+
+    if any(phrase in text for phrase in VAGUE_PHRASES):
         return True
 
     return False

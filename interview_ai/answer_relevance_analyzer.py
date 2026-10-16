@@ -112,15 +112,42 @@ def analyze_relevance(question, answer):
             "relevance_level": "irrelevant"
         }
 
-    matched_keywords = question_keywords.intersection(answer_keywords)
+    matched_keywords = question_keywords.intersection(
+        answer_keywords
+    )
 
-    question_concepts = detect_concepts(question_keywords)
-    answer_concepts = detect_concepts(answer_keywords)
+    question_concepts = detect_concepts(
+        question_keywords
+    )
 
-    matched_concepts = question_concepts.intersection(answer_concepts)
+    answer_concepts = detect_concepts(
+        answer_keywords
+    )
+
+    matched_concepts = question_concepts.intersection(
+        answer_concepts
+    )
 
     match_count = len(matched_keywords)
     concept_match_count = len(matched_concepts)
+
+    answer_word_count = len(answer_keywords)
+
+    # Prevent extremely short answers from
+    # receiving a full relevance score.
+    if answer_word_count == 1 and match_count > 0:
+        return {
+            "question_keywords": sorted(question_keywords),
+            "answer_keywords": sorted(answer_keywords),
+            "matched_keywords": sorted(matched_keywords),
+            "question_concepts": sorted(question_concepts),
+            "answer_concepts": sorted(answer_concepts),
+            "matched_concepts": sorted(matched_concepts),
+            "match_count": match_count,
+            "concept_match_count": concept_match_count,
+            "relevance_score": 20,
+            "relevance_level": "partially_relevant"
+        }
 
     keyword_score = 0
 

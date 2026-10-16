@@ -1,25 +1,45 @@
 def analyze_response(response):
+    """
+    Analyze the candidate response once and classify it.
+    """
+
+    if not isinstance(response, str):
+        raise ValueError("Response must be a string.")
+
     response = response.strip()
 
     if not response:
         return "incomplete"
 
-    if len(response.split()) <= 2:
+    word_count = len(response.split())
+
+    if word_count <= 2:
         return "vague"
 
-    if len(response.split()) <= 8:
+    if word_count <= 8:
         return "simple"
 
     return "confident"
 
 
-def generate_follow_up(response, category):
-    response_type = analyze_response(response)
+def generate_follow_up(response, category, response_type=None):
+    """
+    Generate a follow-up question based on the response type.
+
+    response_type can be passed from the decision tree so that
+    the same response does not need to be analyzed again.
+    """
+
+    if response_type is None:
+        response_type = analyze_response(response)
 
     if response_type == "incomplete":
         return {
             "type": "clarification",
-            "question": f"Could you please provide more details about your {category}?"
+            "question": (
+                f"Could you please provide more details "
+                f"about your {category}?"
+            )
         }
 
     if response_type == "vague":
@@ -31,27 +51,16 @@ def generate_follow_up(response, category):
     if response_type == "simple":
         return {
             "type": "deepening",
-            "question": f"Can you give an example related to your {category}?"
+            "question": (
+                f"Can you give an example related "
+                f"to your {category}?"
+            )
         }
 
     return {
         "type": "example",
-        "question": "Can you describe a real situation where you demonstrated this?"
+        "question": (
+            "Can you describe a real situation "
+            "where you demonstrated this?"
+        )
     }
-
-
-if __name__ == "__main__":
-
-    test_responses = [
-        "",
-        "Python",
-        "I worked on an AI project",
-        "I developed an AI fraud detection system using Python and machine learning."
-    ]
-
-    for response in test_responses:
-        result = generate_follow_up(response, "technical skills")
-
-        print("\nResponse:", response)
-        print("Follow-up Type:", result["type"])
-        print("Follow-up:", result["question"])

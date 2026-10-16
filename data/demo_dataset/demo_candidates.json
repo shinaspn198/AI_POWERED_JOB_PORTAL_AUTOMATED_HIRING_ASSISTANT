@@ -1,0 +1,190 @@
+[
+  {
+    "candidate_id": "CAND-DEMO-01",
+    "name": "Dr. Sarah Chen",
+    "target_job_id": "JOB-AI-001",
+    "profile_tier": "TOP_TALENT",
+    "resume": {
+      "name": "Sarah Chen",
+      "email": "sarah.chen@techlead.io",
+      "phone": "+1-555-019-2834",
+      "years_of_experience": 6.5,
+      "skills": ["Python", "FastAPI", "React", "PyTorch", "Docker", "PostgreSQL", "System Design"],
+      "education": [
+        {
+          "degree": "Ph.D. in Computer Science",
+          "institution": "Stanford University",
+          "year": 2020
+        }
+      ],
+      "summary": "Accomplished Senior AI Engineer with 6+ years of expertise designing distributed NLP pipelines and deploying high-throughput FastAPI microservices."
+    },
+    "screening": {
+      "question": "Walk us through your architecture for deploying real-time AI models with low latency.",
+      "response": "I architect asynchronous FastAPI gateways paired with Redis model caching and ONNX runtime optimizations, maintaining sub-50ms p95 latency under high concurrency.",
+      "communication_score": 94.0,
+      "intent": "CONFIRM_ARCHITECTURE_EXPERIENCE"
+    },
+    "hr_interview": {
+      "question": "Describe a situation where you resolved a critical technical conflict within your team.",
+      "response": "When debating between GraphQL and gRPC for microservice RPC, I ran an objective latency benchmark that unified our engineering consensus.",
+      "behavioral_score": 92.0,
+      "culture_fit_score": 95.0
+    },
+    "technical_interview": {
+      "coding_challenge": "Design an LRU Cache with O(1) get and put operations.",
+      "code_submission": "class LRUCache:\n    def __init__(self, capacity: int):\n        self.capacity = capacity\n        self.cache = collections.OrderedDict()\n    def get(self, key: int) -> int:\n        if key not in self.cache: return -1\n        self.cache.move_to_end(key)\n        return self.cache[key]\n    def put(self, key: int, value: int) -> None:\n        if key in self.cache: self.cache.move_to_end(key)\n        self.cache[key] = value\n        if len(self.cache) > self.capacity: self.cache.popitem(last=False)",
+      "correctness_score": 98.0,
+      "code_quality_score": 95.0
+    },
+    "integrity": {
+      "tab_switches": 0,
+      "clipboard_pastes": 0,
+      "face_anomalies": 0,
+      "integrity_score": 100.0,
+      "risk_level": "LOW_RISK"
+    },
+    "expected_verdict": "STRONG_HIRE"
+  },
+  {
+    "candidate_id": "CAND-DEMO-02",
+    "name": "Marcus Brody",
+    "target_job_id": "JOB-AI-001",
+    "profile_tier": "AVERAGE_ACCEPTABLE",
+    "resume": {
+      "name": "Marcus Brody",
+      "email": "m.brody@devworks.net",
+      "phone": "+1-555-443-8812",
+      "years_of_experience": 3.5,
+      "skills": ["Python", "FastAPI", "React", "Docker", "SQL"],
+      "education": [
+        {
+          "degree": "B.S. in Software Engineering",
+          "institution": "University of Washington",
+          "year": 2023
+        }
+      ],
+      "summary": "Full Stack Developer with 3.5 years of experience building Python APIs and React web interfaces."
+    },
+    "screening": {
+      "question": "What is your experience deploying containerized web applications?",
+      "response": "I write Dockerfiles and deploy multi-container applications using docker-compose and basic Kubernetes manifests.",
+      "communication_score": 78.0,
+      "intent": "CONFIRM_CONTAINER_SKILLS"
+    },
+    "hr_interview": {
+      "question": "How do you manage tight sprint deadlines with competing priorities?",
+      "response": "I communicate early with product managers and prioritize core user stories while logging technical debt in backlog tickets.",
+      "behavioral_score": 80.0,
+      "culture_fit_score": 82.0
+    },
+    "technical_interview": {
+      "coding_challenge": "Design an LRU Cache with O(1) get and put operations.",
+      "code_submission": "class LRUCache:\n    def __init__(self, cap):\n        self.cap = cap\n        self.data = {}\n        self.order = []\n    def get(self, k):\n        if k not in self.data: return -1\n        self.order.remove(k)\n        self.order.append(k)\n        return self.data[k]\n    def put(self, k, v):\n        if k in self.data: self.order.remove(k)\n        elif len(self.data) >= self.cap:\n            old = self.order.pop(0)\n            del self.data[old]\n        self.data[k] = v\n        self.order.append(k)",
+      "correctness_score": 75.0,
+      "code_quality_score": 72.0
+    },
+    "integrity": {
+      "tab_switches": 1,
+      "clipboard_pastes": 0,
+      "face_anomalies": 0,
+      "integrity_score": 95.0,
+      "risk_level": "LOW_RISK"
+    },
+    "expected_verdict": "SHORTLIST"
+  },
+  {
+    "candidate_id": "CAND-DEMO-03",
+    "name": "David Miller",
+    "target_job_id": "JOB-AI-001",
+    "profile_tier": "MISMATCHED_UNQUALIFIED",
+    "resume": {
+      "name": "David Miller",
+      "email": "david.art@creativehub.org",
+      "phone": "+1-555-891-1123",
+      "years_of_experience": 1.0,
+      "skills": ["Photoshop", "Illustrator", "Figma", "HTML", "CSS"],
+      "education": [
+        {
+          "degree": "B.A. in Visual Arts",
+          "institution": "City College",
+          "year": 2025
+        }
+      ],
+      "summary": "Creative graphic designer transitioning to tech with fundamental HTML/CSS skills."
+    },
+    "screening": {
+      "question": "Explain your experience with Python backend systems and database indexing.",
+      "response": "I haven't written backend Python code yet, but I created landing pages using HTML and CSS mockups.",
+      "communication_score": 60.0,
+      "intent": "INSUFFICIENT_EXPERIENCE"
+    },
+    "hr_interview": {
+      "question": "Why do you want to join this AI Engineering team?",
+      "response": "I want to explore technology and learn on the job.",
+      "behavioral_score": 58.0,
+      "culture_fit_score": 62.0
+    },
+    "technical_interview": {
+      "coding_challenge": "Design an LRU Cache with O(1) get and put operations.",
+      "code_submission": "# Did not complete challenge",
+      "correctness_score": 20.0,
+      "code_quality_score": 25.0
+    },
+    "integrity": {
+      "tab_switches": 0,
+      "clipboard_pastes": 0,
+      "face_anomalies": 0,
+      "integrity_score": 100.0,
+      "risk_level": "LOW_RISK"
+    },
+    "expected_verdict": "REJECT"
+  },
+  {
+    "candidate_id": "CAND-DEMO-04",
+    "name": "Evan Vance",
+    "target_job_id": "JOB-AI-001",
+    "profile_tier": "INTEGRITY_VIOLATION",
+    "resume": {
+      "name": "Evan Vance",
+      "email": "evan.vance@inboxmail.com",
+      "phone": "+1-555-678-9901",
+      "years_of_experience": 5.0,
+      "skills": ["Python", "FastAPI", "React", "Docker", "PyTorch"],
+      "education": [
+        {
+          "degree": "B.Tech in Computer Engineering",
+          "institution": "State Technical University",
+          "year": 2021
+        }
+      ],
+      "summary": "Senior Developer with claimed 5 years building scalable AI microservices."
+    },
+    "screening": {
+      "question": "Describe your recent experience building microservices.",
+      "response": "I built microservices using Python and Docker.",
+      "communication_score": 75.0,
+      "intent": "CONFIRM_EXPERIENCE"
+    },
+    "hr_interview": {
+      "question": "Tell us about a time you made an engineering mistake.",
+      "response": "I never make mistakes; all my production releases have been flawless.",
+      "behavioral_score": 45.0,
+      "culture_fit_score": 40.0
+    },
+    "technical_interview": {
+      "coding_challenge": "Design an LRU Cache with O(1) get and put operations.",
+      "code_submission": "class LRUCache:\n    def __init__(self, capacity: int):\n        # Instant 100-line paste from StackOverflow\n        pass",
+      "correctness_score": 88.0,
+      "code_quality_score": 85.0
+    },
+    "integrity": {
+      "tab_switches": 9,
+      "clipboard_pastes": 6,
+      "face_anomalies": 4,
+      "integrity_score": 35.0,
+      "risk_level": "CRITICAL_RISK"
+    },
+    "expected_verdict": "REJECT"
+  }
+]

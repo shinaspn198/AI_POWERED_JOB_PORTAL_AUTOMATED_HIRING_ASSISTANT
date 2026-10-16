@@ -1,0 +1,20 @@
+[
+  {
+    "job_id": "JOB-AI-001",
+    "title": "Senior AI & Full-Stack Engineer",
+    "department": "Engineering",
+    "required_skills": ["Python", "FastAPI", "React", "PyTorch", "Docker", "PostgreSQL"],
+    "min_experience_years": 4,
+    "min_education": "Bachelor's Degree in Computer Science or related field",
+    "description": "Lead the design and development of production AI pipelines, full-stack microservices, and multimodal candidate evaluation systems."
+  },
+  {
+    "job_id": "JOB-DATA-002",
+    "title": "Junior Data Analyst",
+    "department": "Analytics",
+    "required_skills": ["Python", "SQL", "Pandas", "Tableau", "Excel"],
+    "min_experience_years": 1,
+    "min_education": "Bachelor's Degree in STEM",
+    "description": "Analyze talent acquisition funnels, compute scoring accuracy benchmarks, and build visualization dashboards."
+  }
+]

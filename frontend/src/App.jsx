@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./App.css";
+import AssessmentPipeline from "./components/AssessmentPipeline";
+import RecruiterDashboard from "./components/RecruiterDashboard";
 
 
 // ======================================================
@@ -161,6 +163,9 @@ function App() {
     useState(false);
 
   const [jobSeekerPage, setJobSeekerPage] =
+    useState("dashboard");
+
+  const [recruiterPage, setRecruiterPage] =
     useState("dashboard");
 
   const [authPage, setAuthPage] =
@@ -367,43 +372,12 @@ function App() {
 
             <div className="open-roles-brand">
 
-              <svg
-                className="open-roles-brand-mark"
-                viewBox="0 0 26 26"
-                fill="none"
+              <div
+                className="open-roles-brand-mark open-roles-brand-s"
+                aria-label="Zecpath AI logo"
               >
-
-                <circle
-                  cx="13"
-                  cy="13"
-                  r="12"
-                  stroke="#F2A93B"
-                  strokeWidth="1.6"
-                />
-
-                <path
-                  d="M6 16 Q12 8 20 10"
-                  stroke="#4FD1C5"
-                  strokeWidth="1.6"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-
-                <circle
-                  cx="6"
-                  cy="16"
-                  r="1.8"
-                  fill="#4FD1C5"
-                />
-
-                <circle
-                  cx="20"
-                  cy="10"
-                  r="1.8"
-                  fill="#F2A93B"
-                />
-
-              </svg>
+                Z
+              </div>
 
               Zecpath AI
 
@@ -463,7 +437,7 @@ function App() {
 
               <p className="open-roles-lede">
 
-                Zecpath tracks the roles, skills and teams shaping AI hiring
+                Zecpath AI tracks the roles, skills and teams shaping AI hiring
                 right now — so you spend less time searching and more time
                 applying.
 
@@ -857,7 +831,7 @@ function App() {
 
 
                 <div className="open-role-company">
-                  Zecpath Technologies
+                  Zecpath AI Technologies
                 </div>
 
 
@@ -958,7 +932,7 @@ function App() {
 
           <div className="brand">
 
-            <div className="brand-mark">
+            <div className="brand-mark" aria-label="Zecpath AI logo">
               Z
             </div>
 
@@ -1081,7 +1055,7 @@ function App() {
 
               <p>
 
-                Zecpath understands your skills, experience and career
+                Zecpath AI understands your skills, experience and career
                 potential — then connects you with opportunities that
                 actually match.
 
@@ -1292,7 +1266,7 @@ function App() {
 
               <p>
 
-                Zecpath transforms resumes, opportunities and candidate
+                Zecpath AI transforms resumes, opportunities and candidate
                 information into intelligent recruitment decisions.
 
               </p>
@@ -1455,7 +1429,7 @@ function App() {
               <p>
 
                 A recruiter's requirements and a candidate's experience
-                shouldn't live in separate worlds. Zecpath creates the
+                shouldn't live in separate worlds. Zecpath AI creates the
                 connection between them.
 
               </p>
@@ -1540,7 +1514,7 @@ function App() {
             <div className="section-heading">
 
               <span className="section-label">
-                THE ZECPATH JOURNEY
+                THE ZECPATH AI JOURNEY
               </span>
 
 
@@ -1574,7 +1548,7 @@ function App() {
 
                 <p>
 
-                  Upload your resume and let Zecpath understand your
+                  Upload your resume and let Zecpath AI understand your
                   professional profile.
 
                 </p>
@@ -1659,7 +1633,7 @@ function App() {
 
 
             <span className="section-label">
-              START WITH ZECPATH
+              START WITH Zecpath AI
             </span>
 
 
@@ -1716,7 +1690,7 @@ function App() {
 
             <div className="brand">
 
-              <div className="brand-mark">
+              <div className="brand-mark" aria-label="Zecpath AI logo">
                 Z
               </div>
 
@@ -1775,7 +1749,7 @@ function App() {
               </strong>
 
               <span>
-                About Zecpath
+                About Zecpath AI
               </span>
 
               <span>
@@ -1843,7 +1817,7 @@ function App() {
           <section className="hero signup-hero">
 
             <span className="badge">
-              WELCOME TO ZECPATH AI
+              WELCOME TO Zecpath AI
             </span>
 
             <h2>
@@ -1990,7 +1964,7 @@ function App() {
 
             <p>
 
-              Build your Zecpath profile and discover opportunities
+              Build your Zecpath AI profile and discover opportunities
               that match your skills and experience.
 
             </p>
@@ -2109,7 +2083,7 @@ function App() {
             </h2>
 
             <p>
-              Sign in to continue to your Zecpath dashboard.
+              Sign in to continue to your Zecpath AI dashboard.
             </p>
 
           </section>
@@ -2186,6 +2160,18 @@ function App() {
   if (
     role === "jobseeker"
   ) {
+
+    if (jobSeekerPage === "assessment") {
+      return (
+        <div className="app">
+          <AssessmentPipeline
+            onBack={() => setJobSeekerPage("dashboard")}
+            candidateName={profile?.name || "Candidate"}
+            initialRole="software_engineer"
+          />
+        </div>
+      );
+    }
 
 
     // ====================================================
@@ -2967,7 +2953,7 @@ function App() {
                 </h3>
 
                 <p className="company">
-                  Zecpath Technologies
+                  Zecpath AI Technologies
                 </p>
 
                 <p>
@@ -3155,7 +3141,10 @@ function App() {
 
             {/* SCREENING */}
 
-            <button className="role-card">
+            <button
+              className="role-card"
+              onClick={() => setJobSeekerPage("assessment")}
+            >
 
               <div className="role-icon">
                 🤖
@@ -3210,6 +3199,14 @@ function App() {
   if (
     role === "recruiter"
   ) {
+
+    if (recruiterPage === "intelligence") {
+      return (
+        <div className="app">
+          <RecruiterDashboard onBack={() => setRecruiterPage("dashboard")} />
+        </div>
+      );
+    }
 
     return (
 
@@ -3284,7 +3281,10 @@ function App() {
 
             {/* CANDIDATES */}
 
-            <button className="role-card">
+            <button
+              className="role-card"
+              onClick={() => setRecruiterPage("intelligence")}
+            >
 
               <div className="role-icon">
                 👥
@@ -3304,7 +3304,10 @@ function App() {
 
             {/* SCREENING */}
 
-            <button className="role-card">
+            <button
+              className="role-card"
+              onClick={() => setRecruiterPage("intelligence")}
+            >
 
               <div className="role-icon">
                 🤖
@@ -3324,7 +3327,10 @@ function App() {
 
             {/* SHORTLISTING */}
 
-            <button className="role-card">
+            <button
+              className="role-card"
+              onClick={() => setRecruiterPage("intelligence")}
+            >
 
               <div className="role-icon">
                 📊

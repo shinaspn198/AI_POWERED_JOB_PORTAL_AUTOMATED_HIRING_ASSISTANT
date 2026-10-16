@@ -1,4 +1,4 @@
-from follow_up_engine import analyze_response, generate_follow_up
+from .follow_up_engine import analyze_response, generate_follow_up
 
 
 class ConversationState:
@@ -24,28 +24,34 @@ class ConversationState:
 
 def decide_next_action(response, category, state):
 
+    # Analyze the response only once
     response_type = analyze_response(response)
 
-    # Incomplete or vague → clarification
-    if response_type in ["incomplete", "vague"]:
-        follow_up = generate_follow_up(response, category)
+    # Follow-up limit
+    if not state.can_follow_up():
+        return "next_question", None
 
-    # Simple → deeper probe
-    elif response_type == "simple":
-        follow_up = generate_follow_up(response, category)
+    # Generate follow-up using the already calculated response type
+    if response_type in [
+        "incomplete",
+        "vague",
+        "simple",
+        "confident"
+    ]:
 
-    # Confident → example/scenario
+        follow_up = generate_follow_up(
+            response,
+            category,
+            response_type
+        )
+
     else:
-        follow_up = generate_follow_up(response, category)
+        return "next_question", None
 
     question = follow_up["question"]
 
     # Prevent repetitive questioning
     if question in state.asked_questions:
-        return "next_question", None
-
-    # Limit excessive follow-ups
-    if not state.can_follow_up():
         return "next_question", None
 
     state.follow_up_count += 1
@@ -62,11 +68,15 @@ if __name__ == "__main__":
     state = ConversationState()
 
     original_question = "Tell me about your technical skills."
+
     state.add_question(original_question)
 
     response = "I know Python and machine learning."
 
-    state.add_response(original_question, response)
+    state.add_response(
+        original_question,
+        response
+    )
 
     action, result = decide_next_action(
         response,
@@ -74,7 +84,7 @@ if __name__ == "__main__":
         state
     )
 
-    print("===== DECISION TREE =====")
+    print("===== DAY 42 DECISION TREE =====")
     print("Action:", action)
 
     if result:

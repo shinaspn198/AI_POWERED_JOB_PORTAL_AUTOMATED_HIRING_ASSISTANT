@@ -1,9 +1,24 @@
+/* =========================================================
+   Zecpath AI - CONSOLIDATED STYLESHEET
+   One rule set per selector. No !important.
+   ========================================================= */
+
+/* ---------- Base ---------- */
+
 * {
   box-sizing: border-box;
 }
 
-body {
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 100%;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: Arial, sans-serif;
   background: #020617;
   color: white;
@@ -12,6 +27,28 @@ body {
 .app {
   min-height: 100vh;
 }
+
+button {
+  padding: 14px 30px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- Upload page ---------- */
 
 .header {
   padding: 24px 60px;
@@ -98,26 +135,6 @@ input[type="file"] {
   color: white;
 }
 
-button {
-  padding: 14px 30px;
-  border: none;
-  border-radius: 10px;
-  background: #2563eb;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #1d4ed8;
-}
-
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
 .selected-file {
   margin-bottom: 20px;
   color: #cbd5e1;
@@ -148,6 +165,8 @@ button:disabled {
   color: #cbd5e1;
 }
 
+/* ---------- Role cards (page + auth modal) ---------- */
+
 .role-container {
   max-width: 900px;
   margin: 40px auto;
@@ -158,24 +177,28 @@ button:disabled {
 
 .role-card {
   width: 100%;
-  min-height: 280px;
-  padding: 35px;
+  min-height: 150px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #020617;
   border: 1px solid #334155;
-  border-radius: 20px;
-  background: #0f172a;
+  border-radius: 14px;
   color: white;
-  text-align: center;
+  text-align: left;
   transition: 0.2s ease;
 }
 
 .role-card:hover {
   background: #172554;
-  transform: translateY(-5px);
+  border-color: #2563eb;
+  transform: translateY(-2px);
 }
 
 .role-icon {
-  font-size: 48px;
-  margin-bottom: 20px;
+  font-size: 28px;
+  margin-bottom: 12px;
 }
 
 .role-card h3 {
@@ -189,6 +212,17 @@ button:disabled {
   font-size: 16px;
 }
 
+.role-card strong {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.role-card small {
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
 @media (max-width: 700px) {
   .role-container {
     grid-template-columns: 1fr;
@@ -196,7 +230,7 @@ button:disabled {
 }
 
 /* =========================================================
-   ZECPATH ADVANCED LANDING PAGE
+   LANDING PAGE
    ========================================================= */
 
 .landing-page {
@@ -207,7 +241,6 @@ button:disabled {
     #050b18;
   color: #f8fafc;
 }
-
 
 /* Navigation */
 
@@ -295,7 +328,6 @@ button:disabled {
 .nav-cta {
   background: linear-gradient(135deg, #0284c7, #2563eb);
 }
-
 
 /* Hero */
 
@@ -417,8 +449,7 @@ button:disabled {
   font-size: 11px;
 }
 
-
-/* AI Visual */
+/* AI visual */
 
 .hero-visual {
   min-height: 500px;
@@ -524,7 +555,6 @@ button:disabled {
   color: #38bdf8;
 }
 
-
 /* Sections */
 
 .landing-section {
@@ -553,8 +583,7 @@ button:disabled {
   line-height: 1.7;
 }
 
-
-/* Intelligence Cards */
+/* Intelligence cards */
 
 .intelligence-grid {
   margin-top: 55px;
@@ -622,7 +651,6 @@ button:disabled {
   color: #38bdf8;
   font-size: 11px;
 }
-
 
 /* Matching */
 
@@ -693,14 +721,8 @@ button:disabled {
 .flow-line {
   width: 60px;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #38bdf8,
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, #38bdf8, transparent);
 }
-
 
 /* Journey */
 
@@ -740,7 +762,6 @@ button:disabled {
   font-size: 12px;
   line-height: 1.7;
 }
-
 
 /* Final CTA */
 
@@ -784,7 +805,6 @@ button:disabled {
   background: rgba(14, 165, 233, 0.12);
   filter: blur(80px);
 }
-
 
 /* Footer */
 
@@ -832,11 +852,9 @@ button:disabled {
   font-size: 10px;
 }
 
-
-/* Responsive */
+/* Landing responsive */
 
 @media (max-width: 900px) {
-
   .nav-links {
     display: none;
   }
@@ -874,9 +892,7 @@ button:disabled {
   }
 }
 
-
 @media (max-width: 600px) {
-
   .landing-nav {
     padding: 0 20px;
   }
@@ -912,10 +928,7 @@ button:disabled {
     grid-template-columns: 1fr;
   }
 
-  .landing-section {
-    padding: 80px 20px;
-  }
-
+  .landing-section,
   .matching-section {
     padding: 80px 20px;
   }
@@ -924,75 +937,33 @@ button:disabled {
     margin: 40px 20px 80px;
     padding: 65px 20px;
   }
-
 }
 
-/* =========================================
-   FULL WIDTH LANDING PAGE
-   ========================================= */
-
-html,
-body,
-#root {
-  width: 100%;
-  min-width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.landing-page {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  border-left: none;
-  border-right: none;
-}
-
-.landing-nav {
-  width: 100%;
-}
-
-.landing-hero,
-.landing-section,
-.matching-section,
-.final-cta,
-.landing-footer {
-  width: 100%;
-}
-
-/* =========================================
+/* =========================================================
    AUTH MODAL
-   ========================================= */
+   ========================================================= */
 
 .auth-modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(2, 6, 23, 0.75);
   backdrop-filter: blur(8px);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   z-index: 9999;
   padding: 20px;
 }
 
 .auth-modal {
   position: relative;
-
   width: 100%;
   max-width: 460px;
-
   padding: 35px;
-
   background: #0f172a;
   border: 1px solid #334155;
   border-radius: 22px;
-
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
-
   text-align: center;
 }
 
@@ -1010,15 +981,11 @@ body,
   position: absolute;
   top: 15px;
   right: 15px;
-
   width: 35px;
   height: 35px;
-
   padding: 0;
-
   background: transparent;
   color: #94a3b8;
-
   font-size: 25px;
 }
 
@@ -1029,15 +996,11 @@ body,
 .auth-input {
   width: 100%;
   padding: 14px 16px;
-
   margin-bottom: 15px;
-
   background: #020617;
   color: white;
-
   border: 1px solid #334155;
   border-radius: 10px;
-
   outline: none;
   font-size: 15px;
 }
@@ -1054,9 +1017,7 @@ body,
   display: flex;
   align-items: center;
   gap: 12px;
-
   margin: 25px 0;
-
   color: #64748b;
   font-size: 13px;
 }
@@ -1075,55 +1036,16 @@ body,
   gap: 12px;
 }
 
-.role-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  min-height: 150px;
-
-  padding: 20px;
-
-  background: #020617;
-  border: 1px solid #334155;
-  border-radius: 14px;
-
-  text-align: left;
-}
-
-.role-card:hover {
-  border-color: #2563eb;
-  transform: translateY(-2px);
-}
-
-.role-icon {
-  font-size: 28px;
-  margin-bottom: 12px;
-}
-
-.role-card strong {
-  color: white;
-  font-size: 16px;
-  margin-bottom: 8px;
-}
-
-.role-card small {
-  color: #94a3b8;
-  line-height: 1.5;
-}
-
-.login-text {
+.auth-modal .login-text {
   margin-top: 25px;
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 }
 
 .login-link {
   padding: 0;
   margin-left: 6px;
-
   background: transparent;
   color: #60a5fa;
-
   font-size: inherit;
 }
 
@@ -1131,31 +1053,29 @@ body,
   text-decoration: underline;
 }
 
+/* =========================================================
+   JOBS GRID (light cards)
+   ========================================================= */
+
 .jobs-grid {
   width: 100%;
   max-width: 1200px;
   margin: 50px auto 0;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-
   align-items: stretch;
 }
 
 .job-card {
   display: flex;
   flex-direction: column;
-
   min-height: 390px;
   padding: 30px;
-
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 20px;
-
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -1164,37 +1084,26 @@ body,
 
 .job-card:hover {
   transform: translateY(-5px);
-
   border-color: #cbd5e1;
-
-  box-shadow:
-    0 18px 40px rgba(15, 23, 42, 0.10);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
 }
 
 .job-type {
   display: inline-flex;
   align-items: center;
-
   width: fit-content;
-
   padding: 7px 12px;
-
   border-radius: 999px;
-
   background: #eff6ff;
   color: #2563eb;
-
   font-size: 11px;
   font-weight: 700;
-
   letter-spacing: 0.08em;
 }
 
 .job-card h3 {
   margin: 22px 0 8px;
-
   color: #0f172a;
-
   font-size: 24px;
   font-weight: 700;
   line-height: 1.25;
@@ -1202,18 +1111,14 @@ body,
 
 .job-card .company {
   margin: 0 0 18px;
-
   color: #475569;
-
   font-size: 15px;
   font-weight: 600;
 }
 
 .job-card > p:not(.company) {
   margin: 0;
-
   color: #64748b;
-
   font-size: 14px;
   line-height: 1.6;
 }
@@ -1221,48 +1126,34 @@ body,
 .job-skills {
   display: flex;
   flex-wrap: wrap;
-
   gap: 8px;
-
   margin-top: 24px;
 }
 
 .job-skills span {
   display: inline-flex;
   align-items: center;
-
   padding: 7px 11px;
-
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-
   border-radius: 8px;
-
   color: #334155;
-
   font-size: 12px;
   font-weight: 600;
-
   white-space: nowrap;
 }
 
 .apply-button {
   width: 100%;
-
   margin-top: auto;
   padding: 13px 18px;
-
   border: none;
   border-radius: 10px;
-
   background: #0f172a;
   color: #ffffff;
-
   font-size: 14px;
   font-weight: 600;
-
   cursor: pointer;
-
   transition:
     background 0.2s ease,
     transform 0.2s ease;
@@ -1273,14 +1164,14 @@ body,
   transform: translateY(-1px);
 }
 
-/* =========================================
-   ZECpath - FIND JOBS / OPEN ROLES PAGE
-   ========================================= */
+/* =========================================================
+   FIND JOBS / OPEN ROLES PAGE
+   ========================================================= */
 
 .open-roles-page {
   min-height: 100vh;
-  background: #0B0F1A;
-  color: #ECEEF6;
+  background: #0b0f1a;
+  color: #eceef6;
   font-family: Inter, system-ui, sans-serif;
   overflow-x: hidden;
 }
@@ -1292,28 +1183,21 @@ body,
   font-family: "Space Grotesk", system-ui, sans-serif;
 }
 
-
-/* =========================================
-   HEADER
-   ========================================= */
+/* Header */
 
 .open-roles-header {
   position: sticky;
   top: 0;
   z-index: 20;
-
   background: rgba(11, 15, 26, 0.88);
   backdrop-filter: blur(10px);
-
-  border-bottom: 1px solid #232B45;
+  border-bottom: 1px solid #232b45;
 }
 
 .open-roles-header-inner {
-  max-width: 1120px;
+  max-width: 1180px;
   margin: 0 auto;
-
-  padding: 18px 32px;
-
+  padding: 20px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1323,7 +1207,6 @@ body,
   display: flex;
   align-items: center;
   gap: 10px;
-
   font-size: 19px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -1339,9 +1222,8 @@ body,
   display: flex;
   align-items: center;
   gap: 30px;
-
   font-size: 14px;
-  color: #8B92A9;
+  color: #8b92a9;
 }
 
 .open-roles-nav a {
@@ -1351,23 +1233,18 @@ body,
 }
 
 .open-roles-nav a:hover {
-  color: #ECEEF6;
+  color: #eceef6;
 }
 
 .open-roles-post-btn {
   border: none;
-
-  background: #F2A93B;
+  background: #f2a93b;
   color: #231604;
-
   padding: 9px 18px;
   border-radius: 8px;
-
   font-size: 14px;
   font-weight: 600;
-
   cursor: pointer;
-
   transition:
     transform 0.2s ease,
     background 0.2s ease;
@@ -1378,114 +1255,86 @@ body,
   transform: translateY(-1px);
 }
 
-
-/* =========================================
-   HERO
-   ========================================= */
+/* Hero */
 
 .open-roles-hero {
-  max-width: 1120px;
+  max-width: 1180px;
   margin: 0 auto;
-
-  padding: 76px 32px 64px;
+  padding: 82px 32px 70px;
 }
 
 .open-roles-hero-grid {
   display: grid;
-
   grid-template-columns: 1.1fr 0.9fr;
-
-  gap: 48px;
-
+  gap: 70px;
   align-items: center;
+  text-align: left;
 }
 
 .open-roles-hero h1 {
   max-width: 11ch;
-
-  font-size: clamp(36px, 4.4vw, 54px);
-
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+  font-size: clamp(42px, 4.4vw, 54px);
   font-weight: 700;
-
   line-height: 1.06;
-
   letter-spacing: -0.02em;
 }
 
 .open-roles-lede {
   max-width: 42ch;
-
   margin-top: 20px;
-
-  color: #8B92A9;
-
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+  color: #8b92a9;
   font-size: 17px;
-
   line-height: 1.6;
 }
 
-
-/* =========================================
-   SEARCH
-   ========================================= */
+/* Search */
 
 .open-roles-search {
   display: flex;
-
   gap: 10px;
-
   max-width: 440px;
-
   margin-top: 32px;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .open-roles-search input {
   flex: 1;
-
   min-width: 0;
-
   background: #121729;
-
-  border: 1px solid #232B45;
-
-  color: #ECEEF6;
-
+  border: 1px solid #232b45;
+  color: #eceef6;
   border-radius: 9px;
-
   padding: 12px 14px;
-
   font-size: 14.5px;
-
   font-family: inherit;
-
   outline: none;
 }
 
 .open-roles-search input:focus {
-  border-color: #4FD1C5;
+  border-color: #4fd1c5;
 }
 
 .open-roles-search input::placeholder {
-  color: #8B92A9;
+  color: #8b92a9;
 }
 
 .open-roles-search button {
   border: none;
-
-  background: #4FD1C5;
+  background: #4fd1c5;
   color: #04211d;
-
   padding: 0 20px;
-
   border-radius: 9px;
-
   font-size: 14.5px;
   font-weight: 600;
-
   cursor: pointer;
-
   font-family: inherit;
-
   transition: background 0.2s ease;
 }
 
@@ -1493,17 +1342,14 @@ body,
   background: #6ee0d4;
 }
 
-
-/* =========================================
-   HERO STATS
-   ========================================= */
+/* Hero stats */
 
 .open-roles-stats {
   display: flex;
-
+  justify-content: flex-start;
   gap: 32px;
-
   margin-top: 34px;
+  margin-left: 0;
 }
 
 .open-roles-stats div {
@@ -1513,29 +1359,21 @@ body,
 
 .open-roles-stats b {
   font-family: "Space Grotesk", system-ui, sans-serif;
-
   font-size: 22px;
-
   font-weight: 600;
 }
 
 .open-roles-stats span {
-  color: #8B92A9;
-
+  color: #8b92a9;
   font-size: 13px;
-
   margin-top: 2px;
 }
 
-
-/* =========================================
-   CAREER PATH
-   ========================================= */
+/* Career path illustration */
 
 .open-roles-route {
   position: relative;
-
-  height: 340px;
+  height: 360px;
 }
 
 .open-roles-route svg {
@@ -1545,19 +1383,12 @@ body,
 
 .open-roles-waypoint {
   position: absolute;
-
   background: #121729;
-
-  border: 1px solid #232B45;
-
-  color: #8B92A9;
-
+  border: 1px solid #232b45;
+  color: #8b92a9;
   padding: 5px 10px;
-
   border-radius: 100px;
-
   font-size: 12.5px;
-
   white-space: nowrap;
 }
 
@@ -1576,361 +1407,129 @@ body,
   top: 6%;
 }
 
-
-/* =========================================
-   FILTERS
-   ========================================= */
+/* Filters */
 
 .open-roles-filters {
   display: flex;
-
   align-items: center;
-
   gap: 10px;
-
   flex-wrap: wrap;
-
   padding-top: 28px;
-
   margin-top: 8px;
-
-  border-top: 1px solid #232B45;
+  border-top: 1px solid #232b45;
 }
 
 .filter-label {
-  color: #8B92A9;
-
+  color: #8b92a9;
   font-size: 13.5px;
-
   margin-right: 4px;
 }
 
 .filter-chip {
-  border: 1px solid #232B45;
-
-  color: #8B92A9;
-
+  border: 1px solid #232b45;
+  color: #8b92a9;
   background: transparent;
-
   padding: 7px 14px;
-
   border-radius: 100px;
-
   font-size: 13.5px;
-
   cursor: pointer;
-
   font-family: inherit;
-
   transition: all 0.2s ease;
 }
 
 .filter-chip:hover,
 .filter-chip.active {
-  border-color: #F2A93B;
-
-  color: #F2A93B;
+  border-color: #f2a93b;
+  color: #f2a93b;
 }
 
-
-/* =========================================
-   OPEN ROLES SECTION
-   =========================================
-/* =========================================
-   FIND JOBS - SIZE & PROPORTION FIX
-   ========================================= */
-
-.open-roles-header-inner {
-  max-width: 1180px;
-  padding: 20px 32px;
-}
-
-.open-roles-hero {
-  max-width: 1180px;
-  padding: 82px 32px 70px;
-}
-
-.open-roles-hero-grid {
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
-}
-
-.open-roles-hero h1 {
-  font-size: clamp(42px, 4.5vw, 58px);
-  line-height: 1.04;
-  max-width: 12ch;
-}
-
-.open-roles-lede {
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 48ch;
-}
-
-.open-roles-route {
-  height: 360px;
-}
+/* Roles list */
 
 .open-roles-list {
-  max-width: 1180px;
-  padding: 45px 32px 110px;
-}
-
-.open-roles-list h2 {
-  font-size: 30px;
-}
-
-.open-roles-subtitle {
-  font-size: 15px;
-  margin-bottom: 48px;
-}
-
-.open-role-row {
-  gap: 28px;
-  margin-bottom: 26px;
-}
-
-.open-role-card {
-  min-height: 145px;
-  padding: 28px 30px;
-}
-
-.open-role-card h3 {
-  font-size: 21px;
-}
-
-.open-role-company {
-  font-size: 15px;
-}
-
-.open-role-meta {
-  font-size: 14px;
-}
-
-.open-role-tags span {
-  font-size: 13px;
-  padding: 5px 11px;
-}
-
-.open-role-apply {
-  padding: 11px 22px;
-}
-
-.open-role-side > span {
-  font-size: 13px;
-}
-
-/* =========================================
-   OPEN ROLES - MATCH REFERENCE IMAGE
-   ========================================= */
-
-.open-roles-list {
-  max-width: 1350px;
+  position: relative;
+  max-width: 1200px;
   margin: 0 auto;
-
-  padding: 35px 35px 100px;
+  padding: 35px 32px 100px;
+  text-align: left;
 }
 
 .open-roles-list h2 {
+  margin: 0 0 8px;
   font-size: 28px;
   line-height: 1.2;
-
-  margin: 0 0 10px;
-
-  color: #ECEEF6;
+  text-align: left;
+  color: #eceef6;
 }
 
 .open-roles-subtitle {
+  margin-bottom: 48px;
   font-size: 15px;
-
-  color: #8B92A9;
-
-  margin-bottom: 50px;
+  text-align: left;
+  color: #8b92a9;
 }
-
 
 /* Timeline */
 
 .open-roles-path-line {
-  left: 59px;
-
-  top: 112px;
-  bottom: 0;
-
+  position: absolute;
+  display: block;
+  left: 57px;
+  top: 115px;
   width: 2px;
-
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      #232B45 0,
-      #232B45 6px,
-      transparent 6px,
-      transparent 12px
-    );
+  height: 620px;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    to bottom,
+    #232b45 0,
+    #232b45 6px,
+    transparent 6px,
+    transparent 12px
+  );
 }
-
-
-/* Each job row */
 
 .open-role-row {
-  display: flex;
-
-  gap: 26px;
-
-  margin-bottom: 24px;
-
   position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 26px;
+  margin-bottom: 24px;
+  text-align: left;
 }
-
-
-/* Timeline circle */
 
 .open-role-dot {
-  width: 50px;
-  height: 50px;
-
-  margin-top: 5px;
-
-  flex: 0 0 50px;
-
-  border-radius: 50%;
-
-  background: #121729;
-
-  border: 1px solid #232B45;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  font-size: 19px;
-
   position: relative;
-
-  z-index: 2;
-}
-
-
-/* Large job card */
-
-.open-role-card {
-  flex: 1;
-
-  min-height: 223px;
-
-  padding: 28px 30px;
-
-  background: #151B30;
-
-  border: 1px solid #232B45;
-
-  border-radius: 14px;
-
+  z-index: 5;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  margin-top: 5px;
   display: flex;
-
   align-items: center;
-
-  justify-content: space-between;
-
-  gap: 30px;
-
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-}
-
-
-/* Left side of card */
-
-.open-role-main {
-  flex: 1;
-
-  min-width: 0;
-}
-
-.open-role-type {
-  margin-bottom: 12px;
-
-  padding: 4px 11px;
-
-  font-size: 12px;
-}
-
-.open-role-card h3 {
-  font-size: 20px;
-
-  line-height: 1.3;
-
-  margin-bottom: 5px;
-}
-
-.open-role-company {
-  font-size: 14px;
-
-  margin-bottom: 7px;
-}
-
-.open-role-meta {
-  font-size: 13.5px;
-
-  margin-top: 8px;
-}
-
-
-/* Skills */
-
-.open-role-tags {
-  display: flex;
-
-  gap: 9px;
-
-  margin-top: 18px;
-}
-
-.open-role-tags span {
-  padding: 5px 11px;
-
-  font-size: 12.5px;
-
-  border-radius: 7px;
-}
-
-
-/* Right side */
-
-.open-role-side {
-  min-width: 125px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: flex-end;
-
   justify-content: center;
-
-  gap: 11px;
+  border-radius: 50%;
+  background: #121729;
+  border: 1px solid #232b45;
+  font-size: 19px;
+  text-align: center;
 }
 
-.open-role-apply {
-  padding: 10px 22px;
-
-  min-width: 123px;
-
-  font-size: 14px;
-
-  border-radius: 8px;
-}
-
-.open-role-side > span {
-  font-size: 12.5px;
-
-  white-space: nowrap;
-}
-
-
-/* Hover */
+/* Role card */
 
 .open-role-card {
+  flex: 1;
+  min-height: 223px;
+  padding: 28px 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: #151b30;
+  border: 1px solid #232b45;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  text-align: left;
   transition:
     border-color 0.2s ease,
     transform 0.2s ease;
@@ -1938,17 +1537,99 @@ body,
 
 .open-role-card:hover {
   border-color: #35405f;
-
   transform: translateY(-2px);
 }
 
+.open-role-main {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
 
-/* =========================================
-   RESPONSIVE
-   ========================================= */
+.open-role-type {
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(79, 209, 197, 0.12);
+  border: 1px solid rgba(79, 209, 197, 0.08);
+  color: #4fd1c5;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.open-role-type.internship {
+  background: rgba(242, 169, 59, 0.12);
+  border-color: rgba(242, 169, 59, 0.08);
+  color: #f2a93b;
+}
+
+.open-role-card h3 {
+  margin-left: 0;
+  margin-bottom: 5px;
+  font-size: 20px;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.open-role-company {
+  margin-bottom: 7px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.open-role-meta {
+  margin-top: 8px;
+  font-size: 13.5px;
+  text-align: left;
+}
+
+.open-role-tags {
+  display: flex;
+  justify-content: flex-start;
+  gap: 9px;
+  margin-top: 18px;
+  text-align: left;
+}
+
+.open-role-tags span {
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 12.5px;
+}
+
+.open-role-side {
+  min-width: 125px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 11px;
+  text-align: right;
+}
+
+.open-role-side > span {
+  font-size: 12.5px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.open-role-apply {
+  min-width: 123px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Open roles responsive */
 
 @media (max-width: 900px) {
-
   .open-roles-list {
     padding-left: 24px;
     padding-right: 24px;
@@ -1959,9 +1640,59 @@ body,
   }
 }
 
+@media (max-width: 860px) {
+  .open-roles-hero {
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+
+  .open-roles-hero-grid {
+    display: block;
+    width: 100%;
+    padding-left: clamp(20px, 10vw, 87px);
+    padding-right: clamp(20px, 4vw, 35px);
+    text-align: left;
+  }
+
+  .open-roles-route {
+    display: none;
+  }
+
+  .open-roles-hero h1 {
+    width: 100%;
+    max-width: 520px;
+    margin: 0;
+    font-size: clamp(38px, 8vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+  }
+
+  .open-roles-lede {
+    width: 100%;
+    max-width: 430px;
+    margin: 24px 0 0;
+  }
+
+  .open-roles-search {
+    width: 100%;
+    max-width: 470px;
+    margin: 32px 0 0;
+  }
+
+  .open-roles-search input,
+  .open-roles-search button {
+    height: 48px;
+  }
+
+  .open-roles-stats {
+    width: 100%;
+    max-width: 470px;
+    margin: 34px 0 0;
+    gap: 42px;
+  }
+}
 
 @media (max-width: 650px) {
-
   .open-roles-list {
     padding-left: 18px;
     padding-right: 18px;
@@ -1978,549 +1709,28 @@ body,
   .open-role-dot {
     width: 42px;
     height: 42px;
-
     flex-basis: 42px;
   }
 
   .open-role-card {
     padding: 22px;
-
     min-height: auto;
-
     align-items: flex-start;
-
     flex-direction: column;
   }
 
   .open-role-side {
     width: 100%;
-
+    margin-left: 0;
     align-items: flex-start;
-
     flex-direction: row;
-
     justify-content: space-between;
   }
 }
-/* =========================================
-   FINAL OPEN ROLES ALIGNMENT
-   ========================================= */
 
-.open-roles-list {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-
-  padding: 35px 32px 100px !important;
-
-  text-align: left !important;
-}
-
-
-/* Heading must stay on the LEFT */
-
-.open-roles-list h2 {
-  text-align: left !important;
-
-  margin: 0 0 8px !important;
-
-  font-size: 28px !important;
-}
-
-.open-roles-subtitle {
-  text-align: left !important;
-
-  margin-bottom: 48px !important;
-}
-
-
-/* Timeline position */
-
-.open-roles-path-line {
-  left: 57px !important;
-
-  top: 115px !important;
-}
-
-
-/* Job row */
-
-.open-role-row {
-  display: flex !important;
-
-  flex-direction: row !important;
-
-  align-items: flex-start !important;
-
-  gap: 26px !important;
-
-  margin-bottom: 24px !important;
-
-  text-align: left !important;
-}
-
-
-/* Timeline icon */
-
-.open-role-dot {
-  width: 48px !important;
-  height: 48px !important;
-
-  flex: 0 0 48px !important;
-
-  margin-top: 5px !important;
-
-  text-align: center !important;
-}
-
-
-/* Job card */
-
-.open-role-card {
-  flex: 1 !important;
-
-  width: auto !important;
-
-  min-height: 223px !important;
-
-  padding: 28px 30px !important;
-
-  display: flex !important;
-
-  flex-direction: row !important;
-
-  align-items: center !important;
-
-  justify-content: space-between !important;
-
-  text-align: left !important;
-}
-
-
-/* IMPORTANT:
-   Force all job information to LEFT */
-
-.open-role-main {
-  flex: 1 !important;
-
-  min-width: 0 !important;
-
-  text-align: left !important;
-}
-
-.open-role-type {
-  text-align: left !important;
-}
-
-.open-role-card h3 {
-  text-align: left !important;
-
-  margin-left: 0 !important;
-}
-
-.open-role-company {
-  text-align: left !important;
-}
-
-.open-role-meta {
-  text-align: left !important;
-}
-
-.open-role-tags {
-  justify-content: flex-start !important;
-
-  text-align: left !important;
-}
-
-
-/* Apply section stays on RIGHT */
-
-.open-role-side {
-  min-width: 125px !important;
-
-  margin-left: auto !important;
-
-  display: flex !important;
-
-  flex-direction: column !important;
-
-  align-items: flex-end !important;
-
-  justify-content: center !important;
-
-  text-align: right !important;
-}
-
-
-/* Apply button */
-
-.open-role-apply {
-  min-width: 123px !important;
-
-  text-align: center !important;
-}
-
-
-/* Posted text */
-
-.open-role-side > span {
-  text-align: right !important;
-
-  white-space: nowrap !important;
-}
-/* =========================================
-   TIMELINE LINE FIX
-   ========================================= */
-
-.open-roles-path-line {
-  left: 57px !important;
-
-  top: 115px !important;
-
-  bottom: 120px !important;
-
-  width: 2px !important;
-
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      #232B45 0,
-      #232B45 6px,
-      transparent 6px,
-      transparent 12px
-    ) !important;
-
-  z-index: 0;
-}
-
-
-/* Keep the icons above the line */
-
-.open-role-dot {
-  position: relative !important;
-
-  z-index: 2 !important;
-
-  background: #121729 !important;
-}
-/* FORCE TIMELINE LINE */
-
-.open-roles-list {
-  position: relative !important;
-}
-
-.open-roles-path-line {
-  position: absolute !important;
-
-  left: 57px !important;
-  top: 115px !important;
-
-  width: 2px !important;
-  height: 620px !important;
-
-  bottom: auto !important;
-
-  background: repeating-linear-gradient(
-    to bottom,
-    #232B45 0px,
-    #232B45 6px,
-    transparent 6px,
-    transparent 12px
-  ) !important;
-
-  display: block !important;
-
-  z-index: 1 !important;
-}
-
-.open-role-dot {
-  position: relative !important;
-  z-index: 5 !important;
-
-  background: #121729 !important;
-}
-/* =========================================
-   JOB TYPE BADGES
-   ========================================= */
-
-.open-role-type {
-  display: inline-block !important;
-
-  width: fit-content !important;
-
-  padding: 5px 12px !important;
-
-  border-radius: 999px !important;
-
-  background: rgba(79, 209, 197, 0.12) !important;
-
-  border: 1px solid rgba(79, 209, 197, 0.08) !important;
-
-  color: #4FD1C5 !important;
-
-  font-size: 12px !important;
-
-  font-weight: 600 !important;
-
-  line-height: 1.3 !important;
-
-  margin-bottom: 12px !important;
-
-  white-space: nowrap !important;
-}
-
-
-/* Internship badge */
-
-.open-role-type.internship {
-  background: rgba(242, 169, 59, 0.12) !important;
-
-  border-color: rgba(242, 169, 59, 0.08) !important;
-
-  color: #F2A93B !important;
-}
-/* =========================================
-   HERO TEXT - SECOND IMAGE FORMAT
-   ========================================= */
-
-.open-roles-hero-grid {
-  grid-template-columns: 1.1fr 0.9fr !important;
-  text-align: left !important;
-  align-items: center !important;
-}
-
-.open-roles-hero-grid > div:first-child {
-  text-align: left !important;
-}
-
-.open-roles-hero h1 {
-  max-width: 11ch !important;
-
-  margin-left: 0 !important;
-  margin-right: auto !important;
-
-  text-align: left !important;
-
-  font-size: clamp(42px, 4.4vw, 54px) !important;
-
-  line-height: 1.06 !important;
-
-  letter-spacing: -0.02em !important;
-}
-
-.open-roles-lede {
-  max-width: 42ch !important;
-
-  margin-left: 0 !important;
-  margin-right: auto !important;
-
-  text-align: left !important;
-
-  font-size: 17px !important;
-
-  line-height: 1.6 !important;
-}
-
-.open-roles-search {
-  margin-left: 0 !important;
-  margin-right: auto !important;
-}
-
-.open-roles-stats {
-  justify-content: flex-start !important;
-
-  margin-left: 0 !important;
-}
-/* =========================================
-   FIND JOBS HERO - MATCH SECOND REFERENCE
-   ========================================= */
-
-@media (max-width: 860px) {
-
-  .open-roles-hero {
-    padding: 20px 0 40px !important;
-  }
-
-  .open-roles-hero-grid {
-    display: block !important;
-
-    width: 100% !important;
-
-    padding-left: 87px !important;
-    padding-right: 40px !important;
-
-    text-align: left !important;
-  }
-
-  /* Hide the career illustration on this layout */
-  .open-roles-route {
-    display: none !important;
-  }
-
-  /* EXACT heading structure */
-  .open-roles-hero h1 {
-    width: 450px !important;
-    max-width: 100% !important;
-
-    margin: 0 !important;
-
-    text-align: left !important;
-
-    font-size: 56px !important;
-
-    line-height: 1.08 !important;
-
-    letter-spacing: -0.025em !important;
-  }
-
-  /* Paragraph */
-  .open-roles-lede {
-    width: 480px !important;
-    max-width: 100% !important;
-
-    margin: 24px 0 0 0 !important;
-
-    text-align: left !important;
-
-    font-size: 17px !important;
-
-    line-height: 1.6 !important;
-  }
-
-  /* Search */
-  .open-roles-search {
-    width: 470px !important;
-    max-width: 100% !important;
-
-    margin: 32px 0 0 0 !important;
-
-    display: flex !important;
-
-    justify-content: flex-start !important;
-  }
-
-  .open-roles-search input {
-    height: 48px !important;
-  }
-
-  .open-roles-search button {
-    height: 48px !important;
-  }
-
-  /* Statistics */
-  .open-roles-stats {
-    width: 470px !important;
-    max-width: 100% !important;
-
-    margin: 34px 0 0 0 !important;
-
-    display: flex !important;
-
-    justify-content: flex-start !important;
-
-    gap: 42px !important;
-
-    text-align: left !important;
-  }
-
-  .open-roles-stats div {
-    text-align: left !important;
-  }
-}
-@media (max-width: 860px) {
-  .open-roles-hero {
-    padding-top: 5px !important;
-  }
-
-  .open-roles-hero-grid {
-    padding-top: 0 !important;
-  }
-}
-/* =========================================
-   FIND JOBS HERO - FINAL TEXT POSITION
-   ========================================= */
-
-@media (max-width: 860px) {
-
-  .open-roles-hero {
-    padding-top: 0 !important;
-    padding-bottom: 40px !important;
-  }
-
-  .open-roles-hero-grid {
-    display: block !important;
-
-    width: 100% !important;
-
-    padding-left: 87px !important;
-    padding-right: 35px !important;
-
-    text-align: left !important;
-  }
-
-  /* Hide roadmap on this screen size */
-  .open-roles-route {
-    display: none !important;
-  }
-
-  /* Main heading */
-  .open-roles-hero h1 {
-    width: 520px !important;
-    max-width: none !important;
-
-    margin: 0 !important;
-
-    text-align: left !important;
-
-    font-size: 56px !important;
-    line-height: 1.08 !important;
-
-    letter-spacing: -0.025em !important;
-  }
-
-  /* Description */
-  .open-roles-lede {
-    width: 430px !important;
-    max-width: none !important;
-
-    margin: 24px 0 0 0 !important;
-
-    text-align: left !important;
-
-    font-size: 17px !important;
-    line-height: 1.6 !important;
-  }
-
-  /* Search */
-  .open-roles-search {
-    width: 470px !important;
-    max-width: none !important;
-
-    margin: 32px 0 0 0 !important;
-
-    display: flex !important;
-  }
-
-  /* Statistics */
-  .open-roles-stats {
-    width: 470px !important;
-    max-width: none !important;
-
-    margin: 34px 0 0 0 !important;
-
-    display: flex !important;
-
-    justify-content: flex-start !important;
-
-    gap: 42px !important;
-  }
-
-  .open-roles-stats div {
-    text-align: left !important;
-  }
-}
 /* =========================================================
    JOB SEEKER SIGNUP PAGE
-========================================================= */
+   ========================================================= */
 
 .signup-page {
   min-height: 100vh;
@@ -2534,11 +1744,6 @@ body,
   color: white;
 }
 
-
-/* =========================================================
-   SIGNUP HEADER
-========================================================= */
-
 .signup-header {
   width: 100%;
   min-height: 90px;
@@ -2547,7 +1752,6 @@ body,
   align-items: center;
   justify-content: center;
   text-align: center;
-
   background: rgba(2, 6, 23, 0.85);
   border-bottom: 1px solid rgba(148, 163, 184, 0.14);
 }
@@ -2557,13 +1761,7 @@ body,
   font-size: 30px;
   font-weight: 700;
   letter-spacing: -1px;
-
-  background: linear-gradient(
-    90deg,
-    #ffffff,
-    #93c5fd
-  );
-
+  background: linear-gradient(90deg, #ffffff, #93c5fd);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -2574,22 +1772,12 @@ body,
   font-size: 15px;
 }
 
-
-/* =========================================================
-   SIGNUP MAIN
-========================================================= */
-
 .signup-main {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
   padding: 70px 20px 100px;
 }
-
-
-/* =========================================================
-   SIGNUP HERO
-========================================================= */
 
 .signup-hero {
   max-width: 760px;
@@ -2602,15 +1790,11 @@ body,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding: 8px 16px;
   border-radius: 999px;
-
   background: rgba(37, 99, 235, 0.16);
   border: 1px solid rgba(96, 165, 250, 0.25);
-
   color: #60a5fa;
-
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1.2px;
@@ -2618,94 +1802,60 @@ body,
 
 .signup-hero h2 {
   margin: 22px 0 14px;
-
   font-size: clamp(42px, 6vw, 64px);
   line-height: 1;
   letter-spacing: -2.5px;
-
   color: #f8fafc;
 }
 
 .signup-hero p {
   max-width: 680px;
   margin: 0 auto;
-
   color: #94a3b8;
-
   font-size: 17px;
   line-height: 1.7;
 }
 
-
-/* =========================================================
-   SIGNUP CARD
-========================================================= */
-
 .signup-card {
   width: 100%;
   max-width: 760px;
-
   margin: 0 auto;
   padding: 42px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(15, 23, 42, 0.96),
-      rgba(15, 23, 42, 0.78)
-    );
-
+  background: linear-gradient(
+    145deg,
+    rgba(15, 23, 42, 0.96),
+    rgba(15, 23, 42, 0.78)
+  );
   border: 1px solid rgba(71, 85, 105, 0.55);
   border-radius: 24px;
-
   box-shadow:
     0 30px 80px rgba(0, 0, 0, 0.35),
     0 0 0 1px rgba(255, 255, 255, 0.02);
-
   text-align: left;
 }
 
-
-/* =========================================================
-   CARD TITLE
-========================================================= */
-
 .signup-card h3 {
   margin: 0 0 28px;
-
   text-align: center;
-
   font-size: 25px;
   font-weight: 700;
   color: #f8fafc;
 }
-
-
-/* =========================================================
-   FORM INPUTS
-========================================================= */
 
 .signup-card input[type="text"],
 .signup-card input[type="email"],
 .signup-card input[type="password"] {
   width: 100%;
   height: 52px;
-
   display: block;
-
   margin: 0 0 15px;
   padding: 0 16px;
-
   border: 1px solid #334155;
   border-radius: 11px;
-
   background: #020617;
   color: #f8fafc;
-
   font-size: 14px;
-
   outline: none;
-
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease,
@@ -2718,41 +1868,21 @@ body,
 
 .signup-card input:focus {
   border-color: #3b82f6;
-
   background: #030b1c;
-
-  box-shadow:
-    0 0 0 3px rgba(59, 130, 246, 0.12);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
 }
-
-
-/* =========================================================
-   CREATE ACCOUNT BUTTON
-========================================================= */
 
 .signup-card > button {
   width: 100%;
   height: 52px;
-
   margin-top: 8px;
-
   border: none;
   border-radius: 11px;
-
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #3b82f6
-  );
-
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
   color: white;
-
   font-size: 15px;
   font-weight: 700;
-
-  box-shadow:
-    0 10px 25px rgba(37, 99, 235, 0.22);
-
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.22);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -2761,73 +1891,37 @@ body,
 
 .signup-card > button:hover {
   transform: translateY(-2px);
-
-  background: linear-gradient(
-    135deg,
-    #1d4ed8,
-    #2563eb
-  );
-
-  box-shadow:
-    0 14px 30px rgba(37, 99, 235, 0.30);
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.3);
 }
-
-
-/* =========================================================
-   SIGN IN TEXT
-========================================================= */
 
 .signup-card > p {
   margin: 25px 0 10px;
-
   text-align: center;
-
   color: #94a3b8;
-
   font-size: 14px;
 }
-
-
-/* =========================================================
-   SIGN IN BUTTON
-========================================================= */
 
 .signup-card > button:last-child {
   width: auto;
   min-width: 120px;
-
   height: 44px;
-
   display: block;
-
   margin: 0 auto;
-
   padding: 0 22px;
-
   background: rgba(37, 99, 235, 0.12);
-
   border: 1px solid rgba(96, 165, 250, 0.25);
-
   color: #93c5fd;
-
   box-shadow: none;
 }
 
 .signup-card > button:last-child:hover {
-  background: rgba(37, 99, 235, 0.20);
-
+  background: rgba(37, 99, 235, 0.2);
   border-color: #3b82f6;
-
   box-shadow: none;
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media (max-width: 700px) {
-
   .signup-main {
     padding: 50px 18px 70px;
   }
