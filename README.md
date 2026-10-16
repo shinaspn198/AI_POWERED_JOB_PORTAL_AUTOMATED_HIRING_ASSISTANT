@@ -40,24 +40,29 @@ Traditional recruitment suffers from high time-to-hire (averaging 28+ days), res
 
 ---
 
+
 ## 🏛️ System Architecture
 
 ```mermaid
 flowchart TD
-    Candidate[Candidate Application] --> ResumeParser[Resume Parsing Engine (PDF/DOCX)]
-    ResumeParser --> SemanticATS[Semantic ATS & Eligibility Engine]
-    SemanticATS --> ScreeningAI[Conversational Screening AI]
-    ScreeningAI --> InterviewAI[Multimodal Interview Engine]
-    InterviewAI --> HRSub[HR & Behavioral AI]
-    InterviewAI --> TechSub[Technical & Coding Test Sandbox]
-    InterviewAI --> IntegritySub[Integrity & Malpractice Detector]
-    HRSub & TechSub & IntegritySub --> Aggregator[Cross-Round Aggregation Engine]
-    Aggregator --> DecisionEngine[Hybrid Recommendation AI]
-    DecisionEngine --> ReportGen[Executive Recruiter Scorecard]
-    DecisionEngine --> AuditLedger[(Immutable SHA-256 Decision Audit Ledger)]
+    Candidate["Candidate Application"] --> ResumeParser["Resume Parsing Engine - PDF and DOCX"]
+    ResumeParser --> SemanticATS["Semantic ATS and Eligibility Engine"]
+    SemanticATS --> ScreeningAI["Conversational Screening AI"]
+    ScreeningAI --> InterviewAI["Multimodal Interview Engine"]
+
+    InterviewAI --> HRSub["HR and Behavioral AI"]
+    InterviewAI --> TechSub["Technical and Coding Test Sandbox"]
+    InterviewAI --> IntegritySub["Integrity and Malpractice Detector"]
+
+    HRSub --> Aggregator["Cross-Round Aggregation Engine"]
+    TechSub --> Aggregator
+    IntegritySub --> Aggregator
+
+    Aggregator --> DecisionEngine["Hybrid Recommendation AI"]
+    DecisionEngine --> ReportGen["Executive Recruiter Scorecard"]
+    DecisionEngine --> AuditLedger["Immutable SHA-256 Decision Audit Ledger"]
 ```
 
----
 
 ## 🔄 AI Recruitment Pipeline
 
