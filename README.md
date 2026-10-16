@@ -234,7 +234,7 @@ pytest tests/test_day68_system_validation.py
 
 **Project Links:**
 - **Repository:** [https://github.com/shinaspn198/AI_POWERED_JOB_PORTAL_AUTOMATED_HIRING_ASSISTANT](https://github.com/shinaspn198/AI_POWERED_JOB_PORTAL_AUTOMATED_HIRING_ASSISTANT)
-- **Live Demo:** [https://vercel.com/shinas/ai-powered-job-portal-automated-hiring-assistant)
+- **Live Demo:** [https://ai-powered-job-portal-automated-hir.vercel.app/)
 
 ---
 
